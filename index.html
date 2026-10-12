@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Life Planner</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/components.css">
+  <link rel="stylesheet" href="styles/responsive.css">
+</head>
+<body>
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="container header-container">
+      <h1>Campus Life Planner</h1>
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="#dashboard" class="nav-link active">Dashboard</a></li>
+          <li><a href="#records" class="nav-link">Tasks & Events</a></li>
+          <li><a href="#form-section" class="nav-link">Add Task</a></li>
+          <li><a href="#settings" class="nav-link">Settings</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main id="main-content" class="container">
+
+    <!-- ARIA Live Region for Cap Alerts & Status Messages -->
+    <div id="sr-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- 1. Dashboard / Stats Section -->
+    <section id="dashboard" class="app-section">
+      <h2>Dashboard & Statistics</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>Total Tasks</h3>
+          <p id="stat-total">0</p>
+        </div>
+        <div class="stat-card">
+          <h3>Total Duration</h3>
+          <p id="stat-duration">0 mins</p>
+        </div>
+        <div class="stat-card">
+          <h3>Top Tag</h3>
+          <p id="stat-top-tag">None</p>
+        </div>
+      </div>
+      <!-- Cap / Target Tracker -->
+      <div class="cap-tracker">
+        <h3>Weekly Time Cap Status</h3>
+        <p id="cap-status-message">Loading capacity status...</p>
+      </div>
+      <!-- 7-Day Trend Chart Container -->
+      <div class="chart-container">
+        <h3>Last 7 Days Trend</h3>
+        <div id="trend-chart" class="simple-chart"></div>
+      </div>
+    </section>
+
+    <!-- 2. Records Table & Search Section -->
+    <section id="records" class="app-section">
+      <h2>Tasks & Events Record</h2>
+      
+      <!-- Search & Controls Bar -->
+      <div class="controls-bar">
+        <div class="search-wrapper">
+          <label for="search-input">Search / Regex Filter:</label>
+          <input type="text" id="search-input" placeholder="Type text or regex (e.g. ^@tag)">
+          <button id="toggle-case" type="button" aria-pressed="false">Aa (Case Insensitive)</button>
+        </div>
+        <div class="sort-wrapper">
+          <label for="sort-select">Sort by:</label>
+          <select id="sort-select">
+            <option value="date-asc">Due Date (Earliest)</option>
+            <option value="date-desc">Due Date (Latest)</option>
+            <option value="title-az">Title (A ↕ Z)</option>
+            <option value="duration-desc">Duration (Highest)</option>
+            <option value="duration-asc">Duration (Lowest)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Responsive Table / Cards Container -->
+      <div class="table-responsive-wrapper">
+        <table id="records-table">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Due Date</th>
+              <th>Duration</th>
+              <th>Tag</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="records-tbody">
+            <!-- Dynamic rows injected via JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 3. Add / Edit Form Section -->
+    <section id="form-section" class="app-section">
+      <h2 id="form-heading">Add New Task / Event</h2>
+      <form id="task-form" novalidate>
+        <input type="hidden" id="task-id">
+
+        <div class="form-group">
+          <label for="title">Title <span aria-hidden="true">*</span></label>
+          <input type="text" id="title" name="title" required aria-describedby="title-error">
+          <span id="title-error" class="error-message" role="status"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="dueDate">Due Date (YYYY-MM-DD) <span aria-hidden="true">*</span></label>
+          <input type="date" id="dueDate" name="dueDate" required aria-describedby="date-error">
+          <span id="date-error" class="error-message" role="status"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="duration">Duration (minutes) <span aria-hidden="true">*</span></label>
+          <input type="number" id="duration" name="duration" step="1" min="0" required aria-describedby="duration-error">
+          <span id="duration-error" class="error-message" role="status"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="tag">Tag <span aria-hidden="true">*</span></label>
+          <input type="text" id="tag" name="tag" placeholder="e.g. Academics, Fitness" required aria-describedby="tag-error">
+          <span id="tag-error" class="error-message" role="status"></span>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" id="submit-btn" class="btn btn-primary">Save Task</button>
+          <button type="button" id="cancel-btn" class="btn btn-secondary" style="display:none;">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- 4. Settings Section -->
+    <section id="settings" class="app-section">
+      <h2>Settings & Data Management</h2>
+      <div class="settings-grid">
+        <div class="setting-card">
+          <h3>Time Unit Display</h3>
+          <label for="unit-preference">Preferred Unit:</label>
+          <select id="unit-preference">
+            <option value="mins">Minutes (Default)</option>
+            <option value="hours">Hours (Converted)</option>
+          </select>
+        </div>
+        <div class="setting-card">
+          <h3>Weekly Time Cap (Hours)</h3>
+          <label for="weekly-cap">Max hours allowed:</label>
+          <input type="number" id="weekly-cap" value="20" min="1">
+        </div>
+        <div class="setting-card data-management">
+          <h3>Data Backup & Restore</h3>
+          <button id="export-btn" class="btn btn-secondary">Export JSON</button>
+          <label for="import-file" class="btn btn-secondary file-upload-label">Import JSON</label>
+          <input type="file" id="import-file" accept=".json" style="display: none;">
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. About Section -->
+    <section id="about" class="app-section">
+      <h2>About Campus Life Planner</h2>
+      <p>A responsive, accessible vanilla HTML/CSS/JS application designed to help students manage tasks, track study durations, and organize daily campus life without frameworks.</p>
+      <div class="contact-links">
+        <p><strong>Developer:</strong> Student Developer</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com" target="_blank" rel="noopener">GitHub Profile</a></p>
+        <p><strong>Email:</strong> student@university.edu</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-container">
+      <p>&copy; 2026 Campus Life Planner. Built with vanilla HTML, CSS, and JS.</p>
+    </div>
+  </footer>
+
+  <!-- Main JS Entry Point -->
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>

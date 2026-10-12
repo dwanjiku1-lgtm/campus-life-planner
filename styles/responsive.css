@@ -1,0 +1,38 @@
+/* styles/responsive.css */
+
+/* Tablet (min-width: 768px) */
+@media (min-width: 768px) {
+  .header-container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .controls-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .search-wrapper {
+    flex: 2;
+  }
+
+  .sort-wrapper {
+    flex: 1;
+  }
+}
+
+/* Desktop (min-width: 1024px) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .app-section {
+    padding: 2rem;
+  }
+}
