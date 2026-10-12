@@ -1,0 +1,80 @@
+/* styles/responsive.css */
+
+/* 1. TABLET BREAKPOINT (min-width: 768px) */
+@media (min-width: 768px) {
+  /* Expand stats grid into 3 equal columns */
+  .stats-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Make search and sort bars sit side-by-side */
+  .controls-bar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+
+  .search-wrapper {
+    flex: 2;
+  }
+
+  .sort-wrapper {
+    flex: 1;
+  }
+
+  /* Arrange settings cards in a 2-column grid */
+  .settings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 2. DESKTOP BREAKPOINT (min-width: 1024px)*/
+@media (min-width: 1024px) {
+  /* Switch entire app layout to a side-by-side flex container (Sidebar + Main Content) */
+  .app-layout {
+    flex-direction: row;
+  }
+
+  /* Fix the sidebar to the left side of the viewport */
+  .app-sidebar {
+    width: 260px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    border-bottom: none;
+    border-right: 1px solid var(--border-color);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Stack sidebar navigation links vertically */
+  .sidebar-nav-list {
+    flex-direction: column;
+    overflow-x: visible;
+  }
+
+  /* Show the top workspace bar on desktop */
+  .app-topbar {
+    display: block;
+  }
+
+  /* Expand container padding on large screens */
+  .container {
+    padding: 0 2rem;
+  }
+
+  .app-section {
+    padding: 2rem;
+  }
+}
+
+/* 
+   3. LARGE DESKTOP BREAKPOINT (min-width: 1280px)
+   */
+@media (min-width: 1280px) {
+  /* Expand max container width for ultra-wide monitors */
+  .container {
+    max-width: 1320px;
+  }
+}
