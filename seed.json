@@ -1,0 +1,92 @@
+[
+  {
+    "id": "task_1728723600000_a81f",
+    "title": "Study study for CS101 Midterm",
+    "dueDate": "2026-10-18",
+    "duration": 120,
+    "tag": "Academics",
+    "createdAt": "2026-10-12T10:00:00.000Z",
+    "updatedAt": "2026-10-12T10:00:00.000Z"
+  },
+  {
+    "id": "task_1728723600001_b92g",
+    "title": "Chemistry lab report writeup",
+    "dueDate": "2026-10-15",
+    "duration": 180,
+    "tag": "Academics",
+    "createdAt": "2026-10-10T14:30:00.000Z",
+    "updatedAt": "2026-10-10T14:30:00.000Z"
+  },
+  {
+    "id": "task_1728723600002_c03h",
+    "title": "Gym workout and cardio",
+    "dueDate": "2026-10-13",
+    "duration": 75,
+    "tag": "Fitness",
+    "createdAt": "2026-10-11T08:15:00.000Z",
+    "updatedAt": "2026-10-11T08:15:00.000Z"
+  },
+  {
+    "id": "task_1728723600003_d14i",
+    "title": "Coding club meeting",
+    "dueDate": "2026-10-19",
+    "duration": 90,
+    "tag": "Club",
+    "createdAt": "2026-10-09T17:00:00.000Z",
+    "updatedAt": "2026-10-09T17:00:00.000Z"
+  },
+  {
+    "id": "task_1728723600004_e25j",
+    "title": "Grocery run at campus store",
+    "dueDate": "2026-10-14",
+    "duration": 45,
+    "tag": "Personal",
+    "createdAt": "2026-10-12T09:00:00.000Z",
+    "updatedAt": "2026-10-12T09:00:00.000Z"
+  },
+  {
+    "id": "task_1728723600005_f36k",
+    "title": "Movie night with roommates",
+    "dueDate": "2026-10-17",
+    "duration": 150,
+    "tag": "Social",
+    "createdAt": "2026-10-08T20:00:00.000Z",
+    "updatedAt": "2026-10-08T20:00:00.000Z"
+  },
+  {
+    "id": "task_1728723600006_g47l",
+    "title": "Calculus problem set #4",
+    "dueDate": "2026-10-20",
+    "duration": 150,
+    "tag": "Academics",
+    "createdAt": "2026-10-07T11:20:00.000Z",
+    "updatedAt": "2026-10-07T11:20:00.000Z"
+  },
+  {
+    "id": "task_1728723600007_h58m",
+    "title": "Band practice session",
+    "dueDate": "2026-10-21",
+    "duration": 120,
+    "tag": "Club",
+    "createdAt": "2026-10-06T15:45:00.000Z",
+    "updatedAt": "2026-10-06T15:45:00.000Z"
+  },
+  {
+    "id": "task_1728723600008_i69n",
+    "title": "Library quiet study block",
+    "dueDate": "2026-10-16",
+    "duration": 180,
+    "tag": "Academics",
+    "createdAt": "2026-10-05T13:00:00.000Z",
+    "updatedAt": "2026-10-05T13:00:00.000Z"
+  },
+  {
+    "id": "task_1728723600009_j70o",
+    "title": "Quick coffee break",
+    "dueDate": "2026-10-13",
+    "duration": 20,
+    "tag": "Social",
+    "createdAt": "2026-10-12T11:30:00.000Z",
+    "updatedAt": "2026-10-12T11:30:00.000Z"
+  }
+]
