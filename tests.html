@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Campus Life Planner _ Automated test suite</title>
-    <link rel ="stylesheet" href="styles/base.css">
-    <link rel ="stylesheet" href="styles/tests.css">
+    <link rel="stylesheet" href="styles/base.css">
+    <link rel="stylesheet" href="styles/tests.css">
 
 </head>
+
 <body>
-    <div class = "test-header">
+    <div class="test-header">
         <h1>Automated validation Test suite</h1>
-        <p>Running automated checks against regex rules and validation logic defined in <code>scripts/validators.js</code>.</p>
+        <p>Running automated checks against regex rules and validation logic defined in
+            <code>scripts/validators.js</code>.</p>
         <div id="summary" class="test-summary">Running test suites....</div>
 
     </div>
@@ -19,68 +22,68 @@
     <div id="results-container"></div>
 
     <script type="module">
-        import{
+        import {
             validateTitle,
             validateDuration,
             validateDate,
             validateTag,
             validateNoDuplicateWords
-        }from './scripts/validators.js';
+        } from './scripts/validators.js';
 
         //Define automated test cases for each validators function
         const testSuites = [
-         {
-            name:"Title Validation (validateTitle)",
-            tests:[
-               {input:"Midterm Exam Prep", expected: true, desc: "Valid standard title string"},
-               {input: "A", expected: false, desc: "Too short(under 2 characters)"},
-               {input: "Leading space", expected: false, desc: "Fails leading whitespace check"},
-               {input: "Trailing space", expected: false, desc: "Fails trailing whitespace check"},
-               {input: "", expected: false, desc: "Empty string"}
-            ]
-        },
-        {
-            name: "Duration Validation (validateDuration)",
-            tests: [
-                {input: 45, expected: true,desc: "Valid numeric minutes"},
-                {input: "120", expected: true,desc: "Valid numeric string"},
-                {input: -15, expected: false, desc: "Valid duration number"},
-                {input: 2000, expected: false,desc: "Exceeds 24-hour daily limit"},
-                {input: "invalid", expected: false, desc: "Non-numeric text"}
+            {
+                name: "Title Validation (validateTitle)",
+                tests: [
+                    { input: "Midterm Exam Prep", expected: true, desc: "Valid standard title string" },
+                    { input: "A", expected: false, desc: "Too short(under 2 characters)" },
+                    { input: "Leading space", expected: false, desc: "Fails leading whitespace check" },
+                    { input: "Trailing space", expected: false, desc: "Fails trailing whitespace check" },
+                    { input: "", expected: false, desc: "Empty string" }
+                ]
+            },
+            {
+                name: "Duration Validation (validateDuration)",
+                tests: [
+                    { input: 45, expected: true, desc: "Valid numeric minutes" },
+                    { input: "120", expected: true, desc: "Valid numeric string" },
+                    { input: -15, expected: false, desc: "Valid duration number" },
+                    { input: 2000, expected: false, desc: "Exceeds 24-hour daily limit" },
+                    { input: "invalid", expected: false, desc: "Non-numeric text" }
 
-            ]
-        },
-        {
-            name: "Date Validation (validateDate)",
-            tests: [
-                {input: "2026-10-18", expected: true, desc: "Valid YYYY-MM-DD calendar date"},
-                {input: "2026-13-40", expected: false, desc: "Invalid month/day combination"},
-                {input: "10-18-2026", expected: false, desc: "Wrong format (MM-DD-YYYY)"},
-                {input: "random-text", expected: false, desc: "Plain text string"}
+                ]
+            },
+            {
+                name: "Date Validation (validateDate)",
+                tests: [
+                    { input: "2026-10-18", expected: true, desc: "Valid YYYY-MM-DD calendar date" },
+                    { input: "2026-13-40", expected: false, desc: "Invalid month/day combination" },
+                    { input: "10-18-2026", expected: false, desc: "Wrong format (MM-DD-YYYY)" },
+                    { input: "random-text", expected: false, desc: "Plain text string" }
 
 
-            ]
-        },
-        {
-            name: "Tag Validation (validateTag)",
-            tests: [
-                {input: "Academics", expected: true, desc:"Standard single word tag"},
-                {input: "Study-Group", expected: true, desc:"Tag with allowed hyphen"},
-                {input: "CS 101", expected: true, desc:"Tag with space and numbers"},
-                {input: "Tag@#$!", expected: false, desc:"Contains forbidden special symbols"}
+                ]
+            },
+            {
+                name: "Tag Validation (validateTag)",
+                tests: [
+                    { input: "Academics", expected: true, desc: "Standard single word tag" },
+                    { input: "Study-Group", expected: true, desc: "Tag with allowed hyphen" },
+                    { input: "CS 101", expected: true, desc: "Tag with space and numbers" },
+                    { input: "Tag@#$!", expected: false, desc: "Contains forbidden special symbols" }
 
-                
-            ]
-        },
-        {
-            name: "Duplicate Word Detection (validateNoDuplicateWords)",
-            tests: [
-                {input: "Study hard for final exams", expected: true, desc: "No duplicated words"},
-                {input: "Study study hard", expected: false, desc: "Catches consecutive repeated words"},
-                {input: "Final Final exams", expected: false, desc: "Catches repeated title word case-insensitively"}
 
-            ]
-        }
+                ]
+            },
+            {
+                name: "Duplicate Word Detection (validateNoDuplicateWords)",
+                tests: [
+                    { input: "Study hard for final exams", expected: true, desc: "No duplicated words" },
+                    { input: "Study study hard", expected: false, desc: "Catches consecutive repeated words" },
+                    { input: "Final Final exams", expected: false, desc: "Catches repeated title word case-insensitively" }
+
+                ]
+            }
         ];
 
 
@@ -110,7 +113,7 @@
 
             const Passed = result === t.expected;
             if (Passed) {
-               totalPassed++; 
+                totalPassed++;
             } else {
                 totalFailed++;
             }
@@ -123,19 +126,20 @@
             `;
             groupDiv.appendChild(itemDiv);
         });
-        
-        
+
+
         container.appendChild(groupDiv);
 
-    
-    
-    //output overall summary at the top
-    const summaryEl = document.getElementById('summary');
-    summaryEl.textContent = `Test Results: ${totalPassed} passed, ${totalFailed} failed`;
-    summaryEl.style.color = totalFailed ===0 ? 'var(--success, #15803d)' : 'var(--danger, #91c1c)';
 
-</script>
 
-    
+        //output overall summary at the top
+        const summaryEl = document.getElementById('summary');
+        summaryEl.textContent = `Test Results: ${totalPassed} passed, ${totalFailed} failed`;
+        summaryEl.style.color = totalFailed === 0 ? 'var(--success, #15803d)' : 'var(--danger, #91c1c)';
+
+    </script>
+
+
 </body>
+
 </html>
