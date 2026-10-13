@@ -8,8 +8,9 @@ export const validateTitle = (title) => {
 
 //This makes sure the duration is a positive number only
 export const validateDuration = (duration) => {
+ const num = Number(duration);
   const regex = /^(0|[1-9]\d*)(\.\d{1,2})?$/;
-  return regex.test(duration);
+  return regex.test(duration) && num > 0 && num <= 1440;
 };
 
 // checks that the date follows the YYYY-MM-DD format.
@@ -20,7 +21,7 @@ export const validateDate = (dateStr) => {
 
 // checks that the tag contains only letters, single spaces, and hyphens
 export const validateTag = (tag) => {
-  const regex = /^[A-Za-z]+(?:[ -][A-Za-z]+)*$/;
+  const regex = /^[a-zA-Z0-9\s-]{2,30}$/;
   return regex.test(tag);
 };
 
