@@ -12,6 +12,26 @@ No heavy build tools or frameworks required—just clean, modular vanilla JavaSc
 ## Chosen Theme:
  Campus life planner
 
+## Repository Structure
+Here is a look at the clean, modular layout of the project codebase:
+
+
+campus-life-planner/
+│
+├── index.html           # Main application shell and UI views
+├── tests.html           # Dedicated automated test runner dashboard
+├── seed.json            # Diverse sample data records for testing import/export
+├── README.md            # Comprehensive project documentation
+│
+├── styles/              # Visual design and layout stylesheets
+│   ├── base.css         # CSS design tokens, typography, and color variables
+│   ├── components.css   # Modular card, form, and widget styles
+│   └── tests.css        # Specialized styling for the test suite runner
+│
+└── scripts/             # Core application logic and modules
+    ├── state.js         # Central AppState manager, pub/sub observers, and mutations
+    ├── storage.js       # localStorage wrapper and JSON import validation
+    └── validators.js    # Strict regular expression rules and edge-case checks  
 
 
 
@@ -22,6 +42,22 @@ No heavy build tools or frameworks required—just clean, modular vanilla JavaSc
 For the visual design, I went with a warm, cozy **"Shades of Brown"** palette. 
 * **Design Rationale**: The earthy tones (warm espresso, cream, and terracotta accents) create a calm, focused, and distraction-free environment tailored for long study sessions.
 * **Architecture**: Built with a responsive app shell featuring a desktop sidebar that gracefully collapses into a compact topbar navigation menu on smaller mobile screens.
+
+---
+
+## Data Model (Task Schema)
+Each task record managed by state.js and stored in localStorage follows a strict JavaScript object schema:
+
+JSON
+{
+  "id": "task_1728901234567_abcd",
+  "title": "Algorithms Midterm Prep",
+  "dueDate": "2026-10-18",
+  "duration": 120,
+  "tag": "Academics",
+  "createdAt": "2026-10-14T08:00:00.000Z",
+  "updatedAt": "2026-10-14T08:00:00.000Z"
+}
 
 ---
 
@@ -71,23 +107,6 @@ I included an automated test suite so you can verify all regex validation rules 
    [http://127.0.0.1:5500/tests.html](http://127.0.0.1:5500/tests.html) (or open tests.html directly via Live Server)
 
 
-## Repository Structure
-Here is a look at the clean, modular layout of the project codebase:
 
-```text
-campus-life-planner/
-│
-├── index.html           # Main application shell and UI views
-├── tests.html           # Dedicated automated test runner dashboard
-├── seed.json            # Diverse sample data records for testing import/export
-├── README.md            # Comprehensive project documentation
-│
-├── styles/              # Visual design and layout stylesheets
-│   ├── base.css         # CSS design tokens, typography, and color variables
-│   ├── components.css   # Modular card, form, and widget styles
-│   └── tests.css        # Specialized styling for the test suite runner
-│
-└── scripts/             # Core application logic and modules
-    ├── state.js         # Central AppState manager, pub/sub observers, and mutations
-    ├── storage.js       # localStorage wrapper and JSON import validation
-    └── validators.js    # Strict regular expression rules and edge-case checks    
+
+     
