@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         processedRecords,
         recordsTbody,
         currentState.filterQuery,
-        currentState.caseInsentitive,
+        currentState.caseInsensitive,
         currentState.unitPreference
     );
     updateDashboard(currentState.records, currentState.unitPreference, currentState.weeklyCapHours);
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Tag validation
     const tagError = document.getElementById('tag-error');
     if (!validateTag(tag)) {
-      tagError.textContent = "Invalid tag (letters, spaces, and hyphens only).";
+      tagError.textContent = "Invalid tag (letters, numbers, spaces, and hyphens only).";
       isValid = false;
     } else {
       tagError.textContent = "";
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   });
 
-  // --- Event Listeners: Settings ---
+  //  Event Listeners: 
   unitPrefSelect.addEventListener('change', (e) => {
     state.setUnitPreference(e.target.value);
   });
