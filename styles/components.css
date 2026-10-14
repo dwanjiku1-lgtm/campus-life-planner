@@ -45,7 +45,7 @@ nav a:hover, nav a.active {
 }
 
 .app-section {
-  background-color: var(--card-bg);
+  background-color: #78350f29;
   border-radius: var(--radius);
   padding: 1.5rem;
   margin-bottom: 1.5rem;
@@ -172,7 +172,7 @@ th {
 
 .btn-secondary {
   background-color: #e5e7eb;
-  color: var(--text-main);
+  color: #19a431;
 }
 
 .btn-secondary:hover {
