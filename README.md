@@ -6,6 +6,29 @@ No heavy build tools or frameworks required—just clean, modular vanilla JavaSc
 
 ---
 
+> **Live GitHub Pages URL**: (https://github.com/dwanjiku1-lgtm/campus-life-planner)
+
+##  Repository Structure
+Here is a look at the clean, modular layout of the project codebase:
+
+```text
+campus-life-planner/
+│
+├── index.html           # Main application shell and UI views
+├── tests.html           # Dedicated automated test runner dashboard
+├── seed.json            # Diverse sample data records for testing import/export
+├── README.md            # Comprehensive project documentation
+│
+├── styles/              # Visual design and layout stylesheets
+│   ├── base.css         # CSS design tokens, typography, and color variables
+│   ├── components.css   # Modular card, form, and widget styles
+│   └── tests.css        # Specialized styling for the test suite runner
+│
+└── scripts/             # Core application logic and modules
+    ├── state.js         # Central AppState manager, pub/sub observers, and mutations
+    ├── storage.js       # localStorage wrapper and JSON import validation
+    └── validators.js    # Strict regular expression rules and edge-case checks
+
 ##  Chosen Theme:
  Campus life planner
 
