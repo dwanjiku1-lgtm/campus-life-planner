@@ -34,7 +34,8 @@ campus-life-planner/
     └── validators.js    # Strict regular expression rules and edge-case checks  
 
 
-
+## sketches
+![alt text](image.png)
 
 ## colors for the web app and why
 
