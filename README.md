@@ -39,9 +39,9 @@ campus-life-planner/
 ## colors for the web app and why
 
  "Shades of Brown" (Academic Workspace)
-For the visual design, I went with a warm, cozy **"Shades of Brown"** palette. 
-* **Design Rationale**: The earthy tones (warm espresso, cream, and terracotta accents) create a calm, focused, and distraction-free environment tailored for long study sessions.
-* **Architecture**: Built with a responsive app shell featuring a desktop sidebar that gracefully collapses into a compact topbar navigation menu on smaller mobile screens.
+For the visual design, I went with a warm, cozy 1. Shades of Brown" palette. 
+2. Design Rationale: The earthy tones (warm espresso, cream, and terracotta accents) create a calm, focused, and distraction-free environment tailored for long study sessions.
+3. Architecture: Built with a responsive app shell featuring a desktop sidebar that gracefully collapses into a compact topbar navigation menu on smaller mobile screens.
 
 ---
 
@@ -105,6 +105,9 @@ I included an automated test suite so you can verify all regex validation rules 
 2. Navigate to the test runner file:
    ```text
    [http://127.0.0.1:5500/tests.html](http://127.0.0.1:5500/tests.html) (or open tests.html directly via Live Server)
+
+## link to the video:
+   
 
 
 

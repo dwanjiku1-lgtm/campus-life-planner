@@ -33,15 +33,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   //if local storage is empty on first laod, fetch seed.json
   if (state.records.length === 0) {
     try {
-        const response = await fetch('seed.json');
+        const response = await fetch ('seed.json');
         if (response.ok) {
             const seedData = await response.json();
             state.setRecords(seedData);
         }
-    } catch (error) {
+    }catch (error) {
         console.warn("could not load seed.json automatically:", error);
     }
   }
+  
 
 
   function updateView(currentState) {
