@@ -107,6 +107,7 @@ I included an automated test suite so you can verify all regex validation rules 
    [http://127.0.0.1:5500/tests.html](http://127.0.0.1:5500/tests.html) (or open tests.html directly via Live Server)
 
 ## link to the video:
+https://youtu.be/HCqbodoUP34
    
 
 
